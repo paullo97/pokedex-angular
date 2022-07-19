@@ -3,9 +3,12 @@
     <div class="container">
         <div class="left">
             <app-search></app-search>
-            <app-list [pokemons]="listPokemons"></app-list>
+            <app-list
+                [pokemons]="listPokemons"
+                (pokemonClick)="getInformation($event)">
+            </app-list>
 
         </div>
-        <app-card></app-card>
+        <app-card [pokemon]="pokemonShow" *ngIf="pokemonShow"></app-card>
     </div>
 </div>

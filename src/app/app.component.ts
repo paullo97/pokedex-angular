@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Result } from './core/services/models/pokemons.model';
+import { InformationResponse, Result } from './core/services/models/pokemons.model';
 import { PokemonService } from './core/services/pokemons.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { PokemonService } from './core/services/pokemons.service';
 export class AppComponent implements OnInit
 {
     public listPokemons: Array<Result> = [];
+    public pokemonShow: InformationResponse | undefined;
 
     constructor(private readonly pokemonService: PokemonService)
     { }
@@ -17,5 +18,10 @@ export class AppComponent implements OnInit
     public ngOnInit(): void
     {
         this.pokemonService.getPokemonslist().subscribe((data) => this.listPokemons = data);
+    }
+
+    public getInformation(name: string): void
+    {
+        this.pokemonService.getInformationPokemon(name).subscribe((data) => this.pokemonShow = data);
     }
 }
