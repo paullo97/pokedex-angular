@@ -1,0 +1,24 @@
+*
+{
+    font: small-caps bold 24px/1 sans-serif;
+}
+
+.left
+{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.container
+{
+    display: flex;
+    flex-direction: row;
+
+    app-card
+    {
+        display: flex;
+        margin-top: 10%;
+        margin-left: 30%;
+    }
+}
