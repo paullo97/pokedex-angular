@@ -14,7 +14,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { PokemonsResponse, Result } from './models/pokemons.model';
+import { InformationResponse, PokemonsResponse, Result } from './models/pokemons.model';
 
 @Injectable()
 export class PokemonService
@@ -31,5 +31,10 @@ export class PokemonService
             .pipe(
                 map((data: PokemonsResponse) => data.results)
             );
+    }
+
+    public getInformationPokemon(name: string): Observable<InformationResponse>
+    {
+        return this.http.get<InformationResponse>(`${this.urlPokeApi}/${name}`);
     }
 }
