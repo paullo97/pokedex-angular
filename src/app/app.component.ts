@@ -10,6 +10,7 @@ import { PokemonService } from './core/services/pokemons.service';
 export class AppComponent implements OnInit
 {
     public listPokemons: Array<Result> = [];
+    public listPokemonsAll: Array<Result> = [];
     public pokemonShow: InformationResponse | undefined;
 
     constructor(private readonly pokemonService: PokemonService)
@@ -17,11 +18,29 @@ export class AppComponent implements OnInit
 
     public ngOnInit(): void
     {
-        this.pokemonService.getPokemonslist().subscribe((data) => this.listPokemons = data);
+        this.pokemonService.getPokemonslist().subscribe((data) =>
+        {
+            this.listPokemons = data;
+            this.listPokemonsAll = data;
+        });
     }
 
     public getInformation(name: string): void
     {
         this.pokemonService.getInformationPokemon(name).subscribe((data) => this.pokemonShow = data);
+    }
+
+    public searchPokemon(pokemon: string): void
+    {
+        if(pokemon.length === 0)
+        {
+            this.listPokemons = this.listPokemonsAll;
+            return;
+        }
+
+        this.listPokemons = this.listPokemonsAll.filter((data) =>
+        {
+            return data.name.toLocaleLowerCase().indexOf(pokemon.toLocaleLowerCase()) >= 0
+        });
     }
 }

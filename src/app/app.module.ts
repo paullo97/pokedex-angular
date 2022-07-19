@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,19 +11,21 @@ import { SearchComponent } from './components/search/search.component';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    SearchComponent,
-    ListComponent,
-    CardComponent
-  ],
-  imports: [
-    BrowserModule,
-    CoreModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        SearchComponent,
+        ListComponent,
+        CardComponent
+    ],
+    imports: [
+        BrowserModule,
+        CoreModule,
+        AppRoutingModule,
+        FormsModule
+    ],
+    providers: [
+    ],
+    bootstrap: [ AppComponent ]
 })
 export class AppModule { }

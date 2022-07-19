@@ -1,1 +1,4 @@
-<input placeholder="Pesquisar...">
+<input
+    [(ngModel)]="pokemon"
+    placeholder="Pesquisar..."
+    (keyup)="searchPokemon()">

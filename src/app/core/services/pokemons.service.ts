@@ -27,7 +27,7 @@ export class PokemonService
 
     public getPokemonslist(): Observable<Array<Result>>
     {
-        return this.http.get<PokemonsResponse>(`${this.urlPokeApi}?limit=151`)
+        return this.http.get<PokemonsResponse>(`${this.urlPokeApi}?limit=300`)
             .pipe(
                 map((data: PokemonsResponse) => data.results)
             );
