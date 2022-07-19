@@ -1,0 +1,18 @@
+@import '../../../assets/colors.scss';
+
+.container
+{
+    background: $primary-purple;
+    padding: 20px;
+    margin: 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .title
+    {
+        text-transform: capitalize;
+        color: $white;
+    }
+}
