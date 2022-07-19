@@ -1,22 +1,20 @@
 <div class="content">
     <div class="top-pokemon">
         <img
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg"
+            [src]="searchImage(pokemon?.id || '')"
             draggable="false"
-            width="60px">
-        <p>Bulbasaur</p>
+            width="160px">
+        <p>{{ pokemon?.name | titlecase }}</p>
     </div>
     <div class="information">
         <div class="skills">
             <h2>Habilidades</h2>
-            <p>- Habilidade 1</p>
-            <p>- Habilidade 1</p>
-            <p>- Habilidade 1</p>
+            <p *ngFor="let skill of pokemon?.abilities">- {{ skill.ability.name }}</p>
         </div>
 
         <div class="types">
             <h2>Tipos</h2>
-            <p>- Pranta</p>
+            <p *ngFor="let type of pokemon?.types">- {{ type.type.name }}</p>
         </div>
     </div>
 </div>

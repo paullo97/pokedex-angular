@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Result } from '../../core/services/models/pokemons.model';
 
 @Component({
@@ -10,4 +10,12 @@ export class ListComponent
 {
     @Input()
     public pokemons: Array<Result> = [];
+
+    @Output()
+    public pokemonClick: EventEmitter<string> = new EventEmitter();
+
+    public getInformation(name: string): void
+    {
+        this.pokemonClick.emit(name);
+    }
 }
