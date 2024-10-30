@@ -26,6 +26,7 @@
             "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "baseHref": "/pokedex-angular/",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -58,7 +59,8 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/pokedex-angular/"
             },
             "development": {
               "buildOptimizer": false,
